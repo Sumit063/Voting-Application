@@ -4,6 +4,7 @@ session_start();
 if(!isset($_SESSION['id'])) {
     header('location:../');
 }
+
 $data = $_SESSION['dataa'];
 $status = $_SESSION['status'];
 if(isset($_SESSION['groups'])) {
@@ -22,6 +23,14 @@ if(isset($_SESSION['groups'])) {
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
     <style>
+        .card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: ;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 3;
+  }
+}
         .gradient-custom {
             /* fallback for old browsers */
             background: #f6d365;
@@ -38,7 +47,7 @@ if(isset($_SESSION['groups'])) {
    <div class="container my-5">
        <a href="logout.php" class="btn btn-dark">Logout</a>
        <h1 class="my-3">Vote for your favourites </h1>
-    <div class="container row">
+    <div class="container row" style="position: relative;">
         <div class="col-md-7">
             <div class="row row-cols-1 row-cols-md-2 g-4">
             <?php
@@ -46,9 +55,9 @@ if(isset($_SESSION['groups'])) {
             for($i = 0; $i < count($groups); $i++) {
                 ?>
             
-                <div class="col">
-                    <div class="card h-75">
-                        <img src="../uploads/<?php echo $groups[$i]['picture'] ?>" class="card-img-top" style="width: 100%; height: 50%; object-fit: contain;" alt="GroupImage"/>
+                <div class="col text-center">
+                    <div class="card h-100">
+                        <img src="../uploads/<?php echo $groups[$i]['picture'] ?>" class="card-img-top" style="width: 100%; height: 70%; object-fit: cover;" alt="GroupImage"/>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $groups[$i]['username'] ?></h5>
                             <p class="card-text">
@@ -70,66 +79,20 @@ if(isset($_SESSION['groups'])) {
                             </form>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                            <small class="text-muted">Vote with ❤️</small>
                         </div>
                     </div>
                 </div>
             <?php
             }
             ?>
-        <!-- <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="GroupImage"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
-                        </p>
-                        <a href="#!" class="btn btn-primary">Button</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer content than the first to show
-                            that equal height action.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div> -->
+    
         </div>
         </div>
-        <div class="col-md-5 user-profile">
+        <div class="col-md-5 user-profile" style="position: fixed; right: 0">
                 <div class="container py-5 h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col">
+                    <div class="row d-flex justify-content-center h-100">
+                    <div class="col ">
                         <div class="card mb-3" style="border-radius: .5rem;">
                         <div class="row g-0">
                             <div class="col-md-4 gradient-custom text-center text-white"
