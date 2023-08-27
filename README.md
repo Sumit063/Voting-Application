@@ -6,9 +6,9 @@ A simple voting app made using Bootstrap and PHP where users are allowed to sign
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/1AlbAcFDnBuUsd6DrxzK7iAM85ITfgv2w/view?usp=sharing)
+![App Screenshot](https://github.com/Sumit063/Voting-Application/assets/93856288/d9b70e04-cd73-417b-b170-d28259fa98f2)
 
-![App Screenshot](https://drive.google.com/file/d/1WuzkFA-VOEPe8ELWQUuEAQkcWV1ywfp_/view?usp=sharing)
+![App Screenshot](https://github.com/Sumit063/Voting-Application/assets/93856288/ac765174-daac-4671-81d6-5998c37c3a38)
 ## Made by
 
 - [@Sumit Pandey](https://www.github.com/sumit063)
