@@ -24,12 +24,10 @@ if(isset($_SESSION['groups'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
     <style>
         .card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: ;
-  }
   @include media-breakpoint-only(xl) {
     column-count: 3;
   }
+
 }
         .gradient-custom {
             /* fallback for old browsers */
@@ -41,14 +39,23 @@ if(isset($_SESSION['groups'])) {
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
         }
+
+        @media (max-width: 575px) {
+  .scale-xs {
+   margin: 0;
+   padding: 0;
+  }
+}
     </style>
 </head>
 <body>
-   <div class="container my-5">
-       <a href="logout.php" class="btn btn-dark">Logout</a>
+    <div class="bg-black py-4">
+
+        <div class="container bg-white p-4 rounded-8">
+            <a href="logout.php" class="btn btn-dark">Logout</a>
        <h1 class="my-3">Vote for your favourites </h1>
     <div class="container row" style="position: relative;">
-        <div class="col-md-7">
+        <div class="col-lg-7 col-md-12">
             <div class="row row-cols-1 row-cols-md-2 g-4">
             <?php
             
@@ -89,30 +96,30 @@ if(isset($_SESSION['groups'])) {
     
         </div>
         </div>
-        <div class="col-md-5 user-profile" style="position: fixed; right: 0">
+        <div class="col-lg-5 col-md-12 user-profile scale-xs" >
                 <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center h-100">
-                    <div class="col ">
-                        <div class="card mb-3" style="border-radius: .5rem;">
+                        <div class="col ">
+                            <div class="card mb-3" style="border-radius: .5rem;">
                         <div class="row g-0">
-                            <div class="col-md-4 gradient-custom text-center text-white"
+                            <div class="col-md-4 col-sm-4 gradient-custom text-center text-white"
                                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                                 <img src="../uploads/<?php echo $data['picture'] ?>"
-                                    alt="userImage" class="img-fluid my-5 rounded-8" style="width: 80px;" />
+                                alt="userImage" class="img-fluid my-5 rounded-8" style="width: 80px;" />
                                 <h5><?php echo $data['username']?></h5>
                                 <p><?php echo $data['category'] ?></p>
-                                <i class="far fa-edit mb-5"></i>
-                                </div>
-                            <div class="col-md-8">
-                            <div class="card-body p-4">
+                               
+                            </div>
+                            <div class="col-md-8 col-sm-8">
+                                <div class="card-body p-4">
                                 <h6>Information</h6>
                                 <hr class="mt-0 mb-4">
                                 <div class="row pt-1">
-                                <div class="col-6 mb-3">
+                                <div class="col-12 mb-3">
                                     <h6>Email</h6>
                                     <p class="text-muted"><?php echo $data['email'] ?></p>
                                 </div>
-                                <div class="col-6 mb-3">
+                                <div class="col-12 mb-3">
                                     <h6>Phone</h6>
                                     <p class="text-muted"><?php echo $data['mobile'] ?></p>
                                 </div>
@@ -120,24 +127,24 @@ if(isset($_SESSION['groups'])) {
                                 <h6>Status</h6>
                                 <hr class="mt-0 mb-4">
                                 <div class="row pt-1">
-                                <div class="col-6 mb-3">
+                                    <div class="col-6 mb-3">
                                     <h6 class="my-0 py-0">Voted</h6>
                                     <p class=" <?php if($status> 0) echo "text-success"; else {echo "text-danger";} ?>"><?php if($status == 1) {echo "YES";} else {echo "NO"; }?></p>
                                 </div>
-                                <div class="col-6 mb-3">
+                                <!-- <div class="col-6 mb-3">
                                     <h6>Most Viewed</h6>
                                     <p class="text-muted">Dolor sit amet</p>
-                                </div>
-                                </div>
-                                <div class="d-flex justify-content-start">
+                                </div> -->
+                            </div>
+                                <!-- <div class="d-flex justify-content-start">
                                 <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
                                 <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
                                 <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                                </div>
+                                </div> -->
                             </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
                     </div>
                     </div>
                 </div>
@@ -145,5 +152,6 @@ if(isset($_SESSION['groups'])) {
     </div>
 </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
+</div>
 </body>
 </html>
